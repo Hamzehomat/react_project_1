@@ -47,7 +47,7 @@ const router = createBrowserRouter ([
 function App() {
   const [products , setproducts] = useState([])
   const getproducts = async ()=>{
-    const response = await fetch(`https://ecommerce-node4.vercel.app/categories/active?page=1&limit=5`)
+    const response = await fetch(`https://ecommerce-node4.vercel.app/categories/active?page=1&limit=8`)
     const data = await response.json();
     setproducts(data.categories)
   }
@@ -58,6 +58,7 @@ function App() {
   return (
     <>
     <RouterProvider router={router} />
+    <div className='p-container'>
     {products.map(product=>
       <div className="product" key={product.id}>
       <div className="card" style={{width: '18rem'}}>
@@ -67,7 +68,9 @@ function App() {
     </div>
     </div>
 </div>    )}
+</div>
      </>
+     
   )
 }
 export default App
