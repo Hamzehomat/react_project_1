@@ -1,0 +1,23 @@
+.container-fluid{
+    position:sticky;
+    background-color:#f5f5dc;
+}
+.navbar-expand-lg .navbar-collapse{
+    justify-content:center;
+}
+.nav-link{
+    color:#00008B ;
+}
+.card{
+    background-color:#eee;
+}
+.card-body{
+    color:#00008B;
+}
+.sign{
+    width:933px;
+    display:flex;
+    justify-content:flex-end;
+    gap:10px;    
+}
+
