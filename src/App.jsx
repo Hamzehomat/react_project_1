@@ -39,9 +39,8 @@ const router = createBrowserRouter ([
 },
 {
   path : "/products",
-  element : <Protected>
+  element :
       <Products />
-  </Protected>
 },
 {
   path : "/cart",
