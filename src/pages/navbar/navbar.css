@@ -1,8 +1,15 @@
 .container-fluid{
-    position:sticky;
     background-color:#f5f5dc;
+    z-index:1;
 }
-.navbar-expand-lg .navbar-collapse{
+
+.navbar .container-fluid{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    gap:50px;
+}
+.navbar-expand-lg  .navbar-collapse{
     justify-content:center;
 }
 .nav-link{
@@ -15,9 +22,44 @@
     color:#00008B;
 }
 .sign{
-    width:933px;
     display:flex;
     justify-content:flex-end;
     gap:10px;    
 }
+.nav.nav-underline{
+    display:flex;
+    align-items:center;
+}
+.nav.nav-underline a svg{
+    color:#00008B;
+    text-decoration:none;
+    margin-bottom:5px;
+    width:80px;
+}
+.navbar-toggler{
+    opacity:0;
+}
+@media (max-width: 425px) {
+     .navbar-toggler{
+        opacity:1;
+     }
+     .container-fluid{
+        justify-content:space-around;
+     }
+     .background h1{
+        font-size:100px;
+        margin-top:40px;
+     }
+     .navbar .container-fluid{
+        gap:20px;
+     }
 
+    
+   }
+.marker{
+    display:none;
+}
+a{
+    color:#00008B;
+    text-decoration:none;
+}

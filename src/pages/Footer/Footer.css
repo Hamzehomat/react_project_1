@@ -1,0 +1,27 @@
+.d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top
+{
+padding-top: 1rem;
+padding-bottom: 1rem ;
+}
+.my-4 {
+margin-top: 1.5rem ;
+margin-bottom: 1.5rem ;
+}
+.align-items-center {
+align-items: center ;
+}
+.justify-content-between {
+justify-content: space-between ;
+}
+.flex-wrap {
+flex-wrap: wrap ;
+}
+.border-top {
+border-top: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) ;
+}
+.d-flex {
+display: flex ;
+}
+*, ::after, ::before {
+box-sizing: border-box;
+}

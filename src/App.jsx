@@ -2,21 +2,29 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import './App.css'
 import Home from './pages/home/Home.jsx'
+import Order from './pages/Order/Order.jsx'
 import Root from './Root.jsx'
 import Categories from './pages/categories/Categories.jsx'
 import Products from './pages/Products/Products.jsx'
 import Cart from './pages/Cart/Cart.jsx'
 import Signin from './pages/signin/Signin.jsx'
 import Signup from './pages/signup/signup.jsx'
+import Forget from './pages/Forget/Forget.jsx'
+import Newpass from './pages/Forget/Newpass.jsx'
+import axios from 'axios'
+import UserContextProvider from './pages/context/User1.jsx'
+import Productsid from './pages/productsid/Productsid.jsx'
 import {
   createBrowserRouter,
   RouterProvider
 } from "react-router-dom";
 import { useEffect, useState } from 'react'
+import CartContext from './pages/context/Cartcontext.jsx'
+import Protected from './pages/Protected.jsx'
 const router = createBrowserRouter ([
   {
   path : "/",
-  element : <Root />,
+  element :<Root />,
     children:[{
     path : '/home',
     element : <Home />,
@@ -26,12 +34,18 @@ const router = createBrowserRouter ([
   element : <Categories />,
 },
 {
+  path:"/categories/:id",
+  element:<Productsid />,
+},
+{
   path : "/products",
-  element : <Products />,
+  element : <Protected>
+      <Products />
+  </Protected>
 },
 {
   path : "/cart",
-  element : <Cart />,
+  element :<Cart />
 },
 {
   path :"/signin",
@@ -41,36 +55,34 @@ const router = createBrowserRouter ([
   path :"/signup",
   element : <Signup />,
 },
+{
+  path : '/Forget',
+  element : <Forget />,
+},
+{
+  path: '/Newpass',
+  element:<Newpass />,
+},
+{
+  path:'/Order',
+  element:<Order />,
+},
+
 ],
  },
 ]);
-function App() {
-  const [products , setproducts] = useState([])
-  const getproducts = async ()=>{
-    const response = await fetch(`https://ecommerce-node4.vercel.app/categories/active?page=1&limit=8`)
-    const data = await response.json();
-    setproducts(data.categories)
-  }
-  useEffect (()=>{
-    getproducts();
-  },[])
-
-  return (
+function App() { 
+ 
+return (
     <>
+    <UserContextProvider> 
     <RouterProvider router={router} />
-    <div className='p-container'>
-    {products.map(product=>
-      <div className="product" key={product.id}>
-      <div className="card" style={{width: '18rem'}}>
-   <img className="card-img-top" src={product.image.secure_url} alt="Card image cap" />
-   <div className="card-body">
-    <p className="card-text">{product.name}</p>
-    </div>
-    </div>
-</div>    )}
-</div>
+    </UserContextProvider>
+
+   
+   
      </>
-     
   )
 }
+
 export default App
